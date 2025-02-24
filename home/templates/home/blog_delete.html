@@ -1,0 +1,17 @@
+{% extends 'home/base.html' %}
+{% load static%}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+    <h1>Delete Blog</h1>
+    <p>Are you sure you want to delete the blog with title "{{ blog.title }}"?</p>
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+
+{% endblock %}

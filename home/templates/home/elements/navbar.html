@@ -1,0 +1,9 @@
+{% load static %}
+
+<nav class="navbar">
+    <a href="{% url 'home'%}"><img src="{% static 'images/Logo.png' %}" alt="logo"></a>
+    <div class="links">
+        <a href="{% url 'login'%}"><p>Login</p></a>
+        <a href="{% url 'register' %}"><p>Sign Up</p></a>
+    </div>
+</nav>

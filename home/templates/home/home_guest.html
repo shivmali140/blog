@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+{% endblock %}
+
+{% block content %}
+
+    {% include 'home/elements/navbar.html'%}
+
+    <h2 class="head">Recent Blogs</h2>
+    
+    <div class="blogs">
+        {% for blog in blogs %}
+        <div class="blogcard">
+            <a class="title" href="{% url 'blog-detail' blog.pk %}">
+                {{blog.title}}
+            </a>
+            <p>By {{blog.author.username}}</p>
+            <p>{{blog.content|truncatewords:15}}</p>
+            <div class="info">
+                <p>{{ blog.date_modified|timesince }} ago</p>
+                <p>{{blog.likes}} Likes</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

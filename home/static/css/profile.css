@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 20px;
+    color: #000000;
+}
+
+/* User Info */
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.profile {
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-left: 1rem;
+    border-left: solid 2px black;
+}
+.profile h2 {
+    margin: 0;
+    text-align: start;
+    font-size:20px;
+}
+
+
+/* Blogs Section */
+.blogs {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Blog Card */
+.blogcard {
+    height: 225px;
+    width: 325px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    margin: 0 20px;
+    transition: transform 0.2s;
+}
+
+.blogcard:hover {
+    transform: scale(1.02);
+    transition: 0.7;
+}
+
+/* Blog Content */
+.blogcard p {
+    margin: 5px 0;
+}
+
+.likes {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.info {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+    margin-top: auto;
+    font-weight: bold;
+}
+
+.profile p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .blogcard {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}

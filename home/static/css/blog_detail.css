@@ -1,0 +1,85 @@
+/* General Container */
+.blog-detail-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+
+/* Blog Title */
+.blog-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Blog Meta Info */
+.blog-meta {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.blog-author {
+    font-weight: bold;
+    color: #444;
+}
+
+.blog-date {
+    font-style: italic;
+}
+
+/* Blog Content */
+.blog-content {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Buttons for Edit & Delete */
+.blog-actions {
+    margin-bottom: 20px;
+}
+
+.blog-actions a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.edit-btn {
+    background: #007bff;
+    color: white;
+    margin-right: 10px;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+.delete-btn:hover {
+    background: #b02a37;
+}
+
+/* Back to Blog List Link */
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

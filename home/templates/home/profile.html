@@ -1,0 +1,44 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>{{user.username}}'s profile</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+{% endblock %}
+
+
+{% block content %}
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}"><img src="{% static 'images/Logo.png' %}" alt="logo"></a>
+        <div class="links">
+            <a href="{% url 'home'%}"><p>Home</p></a>
+            <a href="{% url 'logout' %}"><p>Logout</p></a>
+        </div>
+    </nav>
+
+
+    <div class="profile">
+        <h2>Welcome, {{ user.first_name }} {{ user.last_name }}!</h2>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Joined on:</strong> {{ user.date_joined }}</p>
+    </div>
+        
+    <h2>Your Blogs</h2>
+    <div class="blogs">
+        {% for blog in personal_blogs %}
+        <div class="blogcard">
+            <p class="title">{{blog.title}}</p>
+            <p>By {{blog.author.username}}</p>
+            <p>{{blog.content|truncatewords:15}}</p>
+            <div class="info">
+                <p>{{ blog.date_modified|timesince }} ago</p>
+                <p>{{blog.likes}} Likes</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,64 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+{% endblock %}
+
+{% block content %}
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}"><img src="{% static 'images/Logo.png' %}" alt="logo"></a>
+        <div class="links">
+            <a href="{% url 'blog-create' %}"><p>Create</p></a>
+            <a href="{% url 'profile'%}"><p>Profile</p></a>
+            <a href="{% url 'logout' %}"><p>Logout</p></a>
+        </div>
+    </nav>
+
+    {% if messages %}
+    <div id="login-popup" class="popup">
+        {% for message in messages %}
+            <p class="popup-message">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <h2 class="head">Recent Blogs</h2>
+    
+    <div class="blogs">
+        {% for blog in blogs %}
+        <div class="blogcard">
+            <a class="title" href="{% url 'blog-detail' blog.pk %}">
+                {{blog.title}}
+            </a>
+            <p>By {{blog.author.username}}</p>
+            <p>{{blog.content|truncatewords:15}}</p>
+            <div class="info">
+                <p>{{ blog.date_modified|timesince }} ago</p>
+                <p class="likes">{{blog.likes}} Likes</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br><br><br>
+    <h2 class="head">Your blogs</h2>
+    <div class="blogs">
+        {% for pblog in personal_blogs %}
+        <div class="blogcard">
+            <a class="title" href="{% url 'blog-detail' pblog.pk %}">
+                {{pblog.title}}
+            </a>
+            <p>By {{pblog.author.username}}</p>
+            <p>{{pblog.content|truncatechars:100}}</p>
+            <div class="info">
+                <p>{{ pblog.date_modified|timesince }} ago</p>
+                <p class="likes">{{pblog.likes}} Likes</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

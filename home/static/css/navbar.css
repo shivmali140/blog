@@ -1,0 +1,40 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar img {
+    height: 80px;
+    width: 80px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.links a {
+    text-decoration: none;
+}
+
+.links p {
+    margin:0;
+    padding: 10px;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    margin:0;
+    padding: 10px;
+    margin-right: 30px;
+}
+
+.navBar p:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    transform: scale(1.02);
+    transition: 0.7;
+}

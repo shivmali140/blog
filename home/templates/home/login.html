@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+{% endblock %}
+
+{% block content %}
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}"><img src="{% static 'images/Logo.png' %}" alt="logo"></a>
+        <div class="links">
+            <a href="{% url 'home'%}"><p>home</p></a>
+        </div>
+    </nav>
+
+    <form method="post">
+        <h2>Login</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'home/base.html' %}
+{% load static%}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}"><img src="{% static 'images/Logo.png' %}" alt="logo"></a>
+        <div class="links">
+            <a href="{% url 'home' %}"><p>Home</p></a>
+        </div>
+    </nav>
+
+    <div class="blog-detail-container">
+        <h1 class="blog-title">{{ blog.title }}</h1>
+        <p class="blog-meta">By <span class="blog-author">{{ blog.author }}</span> on <span class="blog-date">{{ blog.date_posted }}</span></p>
+        <p class="blog-content">{{ blog.content }}</p>
+
+        {% if can_edit %}
+            <div class="blog-actions">
+                <a href="{% url 'blog-update' blog.pk %}" class="edit-btn">Edit</a>
+                <a href="{% url 'blog-delete' blog.pk %}" class="delete-btn">Delete</a>
+            </div>
+        {% endif %}
+
+        <a href="{% url 'home' %}" class="back-link">Back to Home</a>
+    </div>
+{% endblock %}
